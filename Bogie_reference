@@ -19,7 +19,6 @@ vars:
   artemis_onboarding_enabled: yes
 
 
-
   OTEL_custom_opts: &OTEL_custom_opts >
     -Dotel.resource.attributes=asv=ASVREBEL,ba=BAREBEL
     -Dotel.exporter.otlp.endpoint=http://localhost:4318
@@ -29,6 +28,7 @@ vars:
   OTEL_west_otel_collector: &OTEL_WEST_COLLECTOR otelservices-fs-dealer-w
   OTEL_east_app_name: &otel_east_app_name dealer-insights-bff-fargate-east
   OTEL_west_app_name: &otel_west_app_name dealer-insights-bff-fargate-west
+
 environments:
 - name: dev-avenue
   gear: avenue:^1   # https://github.cloud.capitalone.com/bogie-gears/avenue#avenue-gear
