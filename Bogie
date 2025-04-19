@@ -1,0 +1,30 @@
+# -*- mode: yaml -*-
+# vim: set filetype=yaml
+# atom: set grammar=yaml
+# The Bogiefile template for creating migrated version of the Bogiefile
+# ==============================
+
+
+
+version: 2
+
+vars:
+  name: def
+  ba: aaaaa
+  asv: asvvvv
+  component: test-component
+  owner: MVB585@capitalone.com
+  team_name: team_name
+  artemis_enabled: yes
+  artemis_onboarding_enabled: yes
+
+
+  OTEL_custom_opts: &OTEL_custom_opts >
+    -Dotel.resource.attributes=asv=ASVREBEL,ba=BAREBEL
+    -Dotel.exporter.otlp.endpoint=http://localhost:4318
+    -Dotel.exporter.otlp.protocol=http/protobuf
+    -Dotel.exporter_oltp_metrics_temporality_preference=delta
+  OTEL_east_otel_collector: &OTEL_EAST_COLLECTOR otelservices-fs-dealer
+  OTEL_west_otel_collector: &OTEL_WEST_COLLECTOR otelservices-fs-dealer-w
+  OTEL_east_app_name: &otel_east_app_name dealer-insights-bff-fargate-east
+  OTEL_west_app_name: &otel_west_app_name dealer-insights-bff-fargate-west
